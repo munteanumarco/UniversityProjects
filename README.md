@@ -18,7 +18,7 @@
     <li>:green_book: Semester 2
         <ul>
             <li>
-                <a href="">
+                <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20I/Second%20Semester/Operating%20Systems">
                     :computer: Operating Systems
                 </a>
             </li>

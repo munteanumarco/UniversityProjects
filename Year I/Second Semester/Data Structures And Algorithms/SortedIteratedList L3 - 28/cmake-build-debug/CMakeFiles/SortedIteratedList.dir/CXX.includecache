@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/ListIterator.h
+SortedIteratedList.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/SortedIteratedList.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/ShortTest.cpp
+assert.h
+-
+SortedIteratedList.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/SortedIteratedList.h
+ListIterator.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/ListIterator.h
+iostream
+-
+exception
+-
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/SortedIteratedList.cpp
+ListIterator.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/ListIterator.h
+SortedIteratedList.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/SortedIteratedList.h
+iostream
+-
+exception
+-
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/SortedIteratedList.h
+

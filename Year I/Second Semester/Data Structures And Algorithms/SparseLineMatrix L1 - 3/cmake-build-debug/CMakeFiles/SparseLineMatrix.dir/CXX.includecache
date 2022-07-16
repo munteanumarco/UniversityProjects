@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SparseLineMatrix/Matrix.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SparseLineMatrix/ShortTest.cpp
+assert.h
+-
+Matrix.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SparseLineMatrix/Matrix.h
+iostream
+-
+

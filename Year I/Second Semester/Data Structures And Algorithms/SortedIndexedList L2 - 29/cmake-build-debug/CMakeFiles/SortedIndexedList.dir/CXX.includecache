@@ -1,0 +1,62 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/ExtendedTest.cpp
+ExtendedTest.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/ExtendedTest.h
+assert.h
+-
+exception
+-
+cstdlib
+-
+vector
+-
+iostream
+-
+ListIterator.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/ListIterator.h
+SortedIndexedList.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/SortedIndexedList.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/ExtendedTest.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/ListIterator.cpp
+ListIterator.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/ListIterator.h
+SortedIndexedList.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/SortedIndexedList.h
+iostream
+-
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/ListIterator.h
+SortedIndexedList.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/SortedIndexedList.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/ShortTest.cpp
+assert.h
+-
+iostream
+-
+ListIterator.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/ListIterator.h
+SortedIndexedList.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/SortedIndexedList.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/SortedIndexeList.cpp
+ListIterator.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/ListIterator.h
+SortedIndexedList.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/SortedIndexedList.h
+iostream
+-
+exception
+-
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIndexedList/SortedIndexedList.h
+

@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedBag L5 - 6/ShortTest.cpp
+ShortTest.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedBag L5 - 6/ShortTest.h
+SortedBag.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedBag L5 - 6/SortedBag.h
+SortedBagIterator.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedBag L5 - 6/SortedBagIterator.h
+assert.h
+-
+iostream
+-
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedBag L5 - 6/ShortTest.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedBag L5 - 6/SortedBag.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedBag L5 - 6/SortedBagIterator.h
+SortedBag.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedBag L5 - 6/SortedBag.h
+stack
+-
+

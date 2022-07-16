@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedMultiMap L4 - 39/ExtendedTest.cpp
+exception
+-
+assert.h
+-
+algorithm
+-
+vector
+-
+iostream
+-
+SMMIterator.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedMultiMap L4 - 39/SMMIterator.h
+SortedMultiMap.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedMultiMap L4 - 39/SortedMultiMap.h
+ExtendedTest.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedMultiMap L4 - 39/ExtendedTest.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedMultiMap L4 - 39/ExtendedTest.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedMultiMap L4 - 39/SMMIterator.h
+SortedMultiMap.h
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedMultiMap L4 - 39/SortedMultiMap.h
+
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedMultiMap L4 - 39/SortedMultiMap.h
+vector
+-
+utility
+-
+

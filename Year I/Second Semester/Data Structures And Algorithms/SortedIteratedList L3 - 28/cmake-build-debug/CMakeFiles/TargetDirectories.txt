@@ -1,0 +1,3 @@
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/cmake-build-debug/CMakeFiles/SortedIteratedList.dir
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/University/First year/sem2/DataStructures/labs/interfaces/SortedIteratedList L3 - 28/cmake-build-debug/CMakeFiles/rebuild_cache.dir

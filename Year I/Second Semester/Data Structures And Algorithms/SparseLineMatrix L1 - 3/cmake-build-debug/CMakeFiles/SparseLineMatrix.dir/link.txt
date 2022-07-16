@@ -1,0 +1,3 @@
+C:\Users\Marco\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\203.7148.70\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\SparseLineMatrix.dir/objects.a
+C:\MinGW\mingw32\bin\ar.exe cr CMakeFiles\SparseLineMatrix.dir/objects.a @CMakeFiles\SparseLineMatrix.dir\objects1.rsp
+C:\MinGW\mingw32\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\SparseLineMatrix.dir/objects.a -Wl,--no-whole-archive  -o SparseLineMatrix.exe -Wl,--out-implib,libSparseLineMatrix.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\SparseLineMatrix.dir\linklibs.rsp

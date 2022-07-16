@@ -1,4 +1,4 @@
-# UBB
+# University Projects
 
 
 <ul>

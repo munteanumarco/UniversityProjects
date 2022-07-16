@@ -1,0 +1,9 @@
+1,Maria Simbrim,911
+2,Ana Tiros,911
+3,Filip Tosco,912
+4,Adrian Simbrim,915
+5,Maria Popescu,912
+6,Stefan Popescu,911
+7,Geroge Ifrim,914
+8,Ion Lisca,912
+9,Andrei Haroi,913

@@ -1,0 +1,14 @@
+﻿  Participant.cpp
+  ParticipantWindow.cpp
+  PresenterWindow.cpp
+  repo_participants.cpp
+  repo_questions.cpp
+  TabelModel.cpp
+  TableModelPresenter.cpp
+  utils.cpp
+  Question.cpp
+  QuizContest.cpp
+  main.cpp
+  qrc_QuizContest.cpp
+  moc_QuizContest.cpp
+  QuizContest.vcxproj -> C:\University\First year\sem2\OOP\QuizContestMyAttempt\QuizContest\x64\Debug\QuizContest.exe

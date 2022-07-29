@@ -1,0 +1,9 @@
+0;asd;;9
+1;Suntem bines?;mereu;11
+2;Multe mere are ana?;da;10
+3;Cate mere are ana?;2;12
+4;12;12;6
+12;Salut ! ;hi;3
+13;as;as;2
+14;12;12;7
+15;15;12;4

@@ -1,0 +1,13 @@
+﻿  TrenchModel.cpp
+  trench_coat.cpp
+  trench_controller.cpp
+  trench_repo.cpp
+  trench_repo_files.cpp
+  trench_validator.cpp
+  undoredo.cpp
+  utils.cpp
+  TrenchCoats.cpp
+  main.cpp
+  qrc_TrenchCoats.cpp
+  moc_TrenchCoats.cpp
+  Iteration1.vcxproj -> C:\Users\Marco\Documents\GitHub\TrenchCoatsQt\Iteration1\x64\Debug\Iteration1.exe

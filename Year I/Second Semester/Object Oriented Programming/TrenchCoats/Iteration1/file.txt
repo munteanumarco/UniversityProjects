@@ -1,0 +1,12 @@
+0 Beige 250.000000 20 https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1643985855-P00533169.jpg?crop=1xw:1xh;center,top&resize=768:*
+1 Brown 600.000000 10 https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1631285008-ezgif-com-gif-maker-2021-09-10t154240-911-1631284977.jpg?crop=1xw:1xh;center,top&resize=768:*
+2 Black 750.000000 15 https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1610551676-1063621_in_2000_q80.jpg?crop=1xw:1xh;center,top&resize=768:*
+3 White 599.990000 45 https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1643986943-P00380122.jpg?crop=1xw:1xh;center,top&resize=768:*
+4 Grey 449.230000 12 https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1631285911-ezgif-com-gif-maker-2021-09-10t155813-497-1631285898.jpg?crop=1xw:1xh;center,top&resize=768:*
+5 Pink 125.600000 60 https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/evangeline-patch-pocket-wrap-coat-camel-175-1631374351.jpg?crop=1xw:1xh;center,top&resize=980:*
+0 Brown 190.990000 90 https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1643985676-P00627118.jpg?crop=1xw:1xh;center,top&resize=768:*
+1 Black 200.100000 14 https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1643985577-P00356509.jpg?crop=1xw:1xh;center,top&resize=768:*
+2 Beige 770.500000 21 https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1643988382-hmgoepprod.jpg?crop=1xw:1xh;center,top&resize=768:*
+3 Beige 400.000000 77 https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1643985975-P00552468.jpg?crop=1xw:1xh;center,top&resize=768:*
+2 blue 120.000000 99 link
+2 green 200.000000 20 link1

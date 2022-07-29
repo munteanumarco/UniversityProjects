@@ -37,7 +37,14 @@ of the curren edge (or the target vertex, if no <em>Edge_id</em> is used).
   </li><li>Write the graph from a text file (as an external function); see the format below.
   </li><li>Create a random graph with specified number of vertices and of edges (as an external function).
 </li></ul>
-The operations must take no more than:
+<b>The operations must take no more than:</b>
 
-O(deg(x)+deg(y)) for: verifying the existence of an edge and for retrieving the edge between two given vertices.
-O(1) for: getting the first or the next edge, inbound or outbound to a given vertex; get the endpoints, get or set the attached integer for an edge (given by an Edge_id or, if no Edge_id is defined, then given by its source and target); get the total number of vertices or edges; get the in-degree or the out-degree of a given vertex.
+<ul>
+  <li>O(deg(<i>x</i>)+deg(<i>y</i>)) for: verifying the existence of an edge
+and for retrieving the edge between two given vertices.
+  </li><li>O(1) for: getting the first or the next edge, inbound or outbound to a
+  given vertex; get the endpoints, get or set the attached integer
+  for an edge (given by an <i>Edge_id</i> or, if no <em>Edge_id</em> is defined,
+  then given by its source and target); get the total number of vertices or
+  edges; get the in-degree or the out-degree of a given vertex.
+</li></ul>

@@ -1,0 +1,6 @@
+this a task2;open;0
+task5;open;1
+this a task3;in progress;2
+this a task4;closed;2
+this a task1;closed;1
+task6;closed;1

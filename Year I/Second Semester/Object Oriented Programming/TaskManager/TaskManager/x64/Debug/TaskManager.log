@@ -1,0 +1,13 @@
+﻿  cont.cpp
+  ProgrammerWindow.cpp
+  repo_programmers.cpp
+  repo_tasks.cpp
+  Task.cpp
+  utils.cpp
+  Programmer.cpp
+  TaskManager.cpp
+C:\University\First year\sem2\OOP\TaskManager\TaskManager\TaskManager\repo_programmers.cpp(42): warning C4715: 'RepoProgrammers::getProgrammerById': not all control paths return a value
+  main.cpp
+  qrc_TaskManager.cpp
+  moc_TaskManager.cpp
+  TaskManager.vcxproj -> C:\University\First year\sem2\OOP\TaskManager\TaskManager\x64\Debug\TaskManager.exe

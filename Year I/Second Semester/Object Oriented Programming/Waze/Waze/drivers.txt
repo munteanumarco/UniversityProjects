@@ -1,0 +1,3 @@
+marco;grown-up;12;12;11
+andrei;knight;11;13;21
+radu;knight;15;16;31

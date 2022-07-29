@@ -26,3 +26,6 @@ driver's list of reports is also updated according to the value of the Oslider a
 <li>When a modification is made by any driver, all other drivers will see it, automatically. The map will also
 be updated automatically. (<b> Here I used Observer design pattern </b>)</li>
 <li> When the application closes, the files containing drivers and reports will be updated.</li>
+</ul>
+<h2>A little preview:</h2>
+<img src="images/waze.jpg">

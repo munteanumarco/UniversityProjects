@@ -1,0 +1,5 @@
+1;What is a obj file ?;marco
+2;Why I get this bug?;andrei
+3;How you doing?;marco
+4;Is this correct?;radu
+

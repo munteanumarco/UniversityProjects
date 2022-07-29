@@ -1,0 +1,16 @@
+Documentation for finding the lowest length path between two vertices using backwards BFS 
+
+def breadth_first_traversal(self,start_vertex,stop_vertex,suc,dist)
+	- mark all the vertices as unvisited except the stop_vertex as we go backwards
+	- then we add the stop vertex to the queue and keep going while we have elements in the queue
+	- for every element in the queue check if is unvisited and update the dist and succesor array
+	- when we reach the start vertex we return True and return False if there is no path
+def lowest_length_path(self,start_vertex,stop_vertex)
+	
+	- takes the start vertex and stop vertex from the ui 
+	- initializes the dist and succesors arrays and then calls the BFS function
+	- after getting the result of the BFS function it builds the path using succesors array
+	- returns none if there is no path and the path if there is a path
+
+
+	

@@ -1,0 +1,65 @@
+    def depth_first_search(self, vertex, sorted_vertices, visited, currently_visiting):
+	  '''Returns true if the graph is a DAG, false otherwise
+	  '''
+        #adding the vertex to the currently visiting set
+        currently_visiting.add(vertex)
+
+        #iterate through inbound neighbours
+        for neighbour in self.parse_inbound(vertex):
+            #if the neighbour is currently visited return false
+            if neighbour in currently_visiting:
+                return False
+            else:
+                #if the neighbour hasn't been already visited do a depth first search from that vertex
+                if neighbour not in visited:
+                    status = self.depth_first_search(neighbour, sorted_vertices, visited, currently_visiting)
+                    if not status:
+                        return False
+
+        #when coming back from recursive calls remove the vertex from currently visiting set
+        #add the vertex to the visited set of vertices
+        #add the vertex in the sorted_vertices list
+        currently_visiting.remove(vertex)
+        sorted_vertices.append(vertex)
+        visited.add(vertex)
+        return True
+
+    def top_sort(self):
+	  '''Return a topological sort of the graph vertices if the current graph is a DAG
+        '''
+	  sorted_vertices = []
+        visited = set()
+        currently_visiting = set()
+
+        #parsing all the vertices of the graph
+        for vertex in self.parse_vertices():
+            #if the vertex is not visited we do a depth first search on it
+            if vertex not in visited:
+                status = self.depth_first_search(vertex, sorted_vertices, visited, currently_visiting)
+                if not status:
+                    return []
+        #return the sorted_vertices list which is the topological sorted vertices
+        return sorted_vertices
+
+
+    def highest_cost_path(self, sorted_vertices, start_vertex, stop_vertex):
+        '''Returns the highest cost path from start_vertex to stop_vertex and the prev list
+	  '''in order to build the path
+	  #we want highest cost path so initialize the distance list with a big negative number
+        distances = [-1 << 27] * len(sorted_vertices)
+        #prev list will be used in order to build the actual path
+        prev = [-1] * len(sorted_vertices)
+        distances[start_vertex] = 0
+
+        #go through the vertices in the sorted_vertices obtained from the top_sort
+        for vertex in sorted_vertices:
+            #if we reached the destination we break
+            if vertex == stop_vertex:
+                break
+            #we parse the outbound neighbours of the current vertex and check the distance
+            for neighbour in self.parse_outbound(vertex):
+                if distances[neighbour] < distances[vertex] + self.is_edge(vertex,neighbour):
+                    distances[neighbour] = distances[vertex] + self.is_edge(vertex, neighbour)
+                    prev[neighbour] = vertex
+
+        return distances[stop_vertex], prev

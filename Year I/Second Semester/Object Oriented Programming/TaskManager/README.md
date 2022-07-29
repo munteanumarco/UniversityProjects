@@ -1,31 +1,24 @@
-# Waze-ing
+# Task Manager
 
-Write an application which simulates the communication between drivers,as follows:
-<ol>
-<li> The information about all registered drivers is in a text file. Each driver has a name(string), a status(baby, grown-up, knight), a current location (latitude and longitude) and a score. This file is manual created
-and it is read when the application starts.</li>
-<li> Another file contains road information (reports). Each Report has a description, the reporter - the name
-of the driver who reported it and the exact location (latitude and longitude) and whether it was validated
-or not. These are read when the application starts.</li>
-<li>When the application is launched, a new window is created for each driver, having as title the deiver's
-name. The driver's current location, score and status are also shown. The window will show all reports
-for the driver's region of interest (a radius of 10 units from the driver's current location). The windows
-will be coloured differently, according to the drivers status.</li>
-<li>Any driver can add a new report, by inputting the description and exact location. The reporter will
-automatically be the name of the driver who added the report. This operation falls if the description Is
-empty, or if the report's location is more than 20 units away from the driver's location</li>
-<li> Drivers can validate reports, only if these were not validated yet. If a report is validated by 2 drivers other
-than the reporter, the report becomes valid and the reporter's score increases by 1. When the score
-reaches 10, a baby driver becomes grown-up and when the score reaches 15 a driver becomes a knight.
-When a user status changes the window colour will change accordingly.</li>
-<li>Drivers can search reports in a specified radius, by using a QSlider. Its default value is 10 and as it is moved.
-the user's window will show all reports within the given radius.</li>
-<li>A driver can update his/her current location. This is achieved by clicking one of four buttons (north, east,
-south, west) and the location's longitude/latitude updates accordingly (with 1 unit). In this case, the
-driver's list of reports is also updated according to the value of the Oslider and the new location.</li>
-<li>When a modification is made by any driver, all other drivers will see it, automatically. The map will also
-be updated automatically. (<b> Here I used Observer design pattern </b>)</li>
-<li> When the application closes, the files containing drivers and reports will be updated.</li>
-</ul>
+Write an application which simulates the development of a software application, as follows:
+1. The information about the development team is in a text file. Each Programmer has a name (string)
+and an id (integer). This file is manually created and it is read when the application starts.
+2. Another file contains information about the tasks. Each Task has a description (string), a status (can
+be open, in progress or closed) and the id of the programmer that is working/has worked on the task,
+if the task is in progress or closed. These are stored in the file by the program.
+3. When the application is launched, a new window is created for each programmer, having as title the
+programmer's name.
+4. Each window will show all the tasks, with their description and status, sorted by status.
+5. A programmer can add a task. When a task is added, its status will be open, by default.
+6. A programmer can remove a task. 
+7. When a programmer starts working on a task having the open status, he/she selects the task and
+presses a button "Start". The task changes its state to in progress and the name of the programmer
+will be shown next to the task. This operation fails if the selected task is not open and the programmer
+is informed.
+8. A programmer can close a task in progress by clicking a button "Done". The button will be enabled
+only if the task is in progress and if the programmer is the same one that started to work on the task.
+9. When a modification is made by any programmer, all the other programmers will see the modified
+list of tasks.
+10. When the application is finished, the tasks file will be updated.
 <h2>A little preview:</h2>
-<img src="images/waze.jpg">
+<img src="images/task.jpg">

@@ -27,7 +27,7 @@ public class PrintStmt implements IStmt {
     @Override
     public ProgramState execute(ProgramState state) throws ExpEvalException, ADTException {
         MyIList<Value> out = state.getOut();
-        out.add(expression.eval(state.getSymTable()));
+        out.add(expression.eval(state.getSymTable(), state.getHeap()));
         state.setOut(out);
         return state;
     }

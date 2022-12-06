@@ -3,6 +3,7 @@ package Model.Statement;
 import Exceptions.MyException;
 import Exceptions.StmtExecutionException;
 import Model.ADT.MyIDictionary;
+import Model.ADT.MyIHeap;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.IntType;
@@ -29,6 +30,7 @@ public class ReadFile implements IStmt {
     public ProgramState execute(ProgramState state) throws MyException {
         MyIDictionary<String, Value> symTable = state.getSymTable();
         MyIDictionary<String, BufferedReader> fileTable = state.getFileTable();
+        MyIHeap heap = state.getHeap();
 
         if (!symTable.isVarDef(this.varName)) {
             throw new StmtExecutionException(String.format("%s is not declared",this.varName));
@@ -37,7 +39,7 @@ public class ReadFile implements IStmt {
             throw new StmtExecutionException(String.format("%s is not of IntType",this.varName));
         }
 
-        Value v = this.expression.eval(symTable);
+        Value v = this.expression.eval(symTable, heap);
         if (!v.getType().equals(new StringType())) {
             throw new StmtExecutionException(String.format("%s cannot be evaluated as StringType",this.expression.toString()));
         }

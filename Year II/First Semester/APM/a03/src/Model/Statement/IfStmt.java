@@ -27,7 +27,7 @@ public class IfStmt implements IStmt {
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        Value cond = expression.eval(state.getSymTable());
+        Value cond = expression.eval(state.getSymTable(), state.getHeap());
         if (cond instanceof BoolValue boolResult) {
             IStmt statement;
             if (boolResult.getValue()) {

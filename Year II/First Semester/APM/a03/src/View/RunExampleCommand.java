@@ -20,10 +20,10 @@ public class RunExampleCommand extends Command{
     @Override
     public void execute() {
         try {
-            System.out.println("Do you want to display the steps?[Y/n]");
-            Scanner readOption = new Scanner(System.in);
-            String option = readOption.next();
-            controller.setDisplayFlag(Objects.equals(option, "Y"));
+//            System.out.println("Do you want to display the steps?[Y/n]");
+//            Scanner readOption = new Scanner(System.in);
+//            String option = readOption.next();
+//            controller.setDisplayFlag(Objects.equals(option, "Y"));
             controller.allSteps();
         } catch (MyException | IOException exception) {
             System.out.println("\u001B[31m" + exception.getMessage() + "\u001B[0m");

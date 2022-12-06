@@ -55,6 +55,11 @@ public class MyDictionary<K,V> implements MyIDictionary<K,V> {
     }
 
     @Override
+    public Map<K, V> getContent() {
+        return this.map;
+    }
+
+    @Override
     public String toString() {
         return this.map.toString();
     }

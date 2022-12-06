@@ -3,6 +3,7 @@ package Model.Statement;
 import Exceptions.MyException;
 import Exceptions.StmtExecutionException;
 import Model.ADT.MyIDictionary;
+import Model.ADT.MyIHeap;
 import Model.ADT.MyIList;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
@@ -27,8 +28,9 @@ public class CloseReadFile implements IStmt {
 
         MyIDictionary<String, Value> symTable = state.getSymTable();
         MyIDictionary<String,BufferedReader> fileTable = state.getFileTable();
+        MyIHeap heap = state.getHeap();
 
-        Value v = this.expression.eval(symTable);
+        Value v = this.expression.eval(symTable, heap);
         if (!v.getType().equals(new StringType())) {
             throw new StmtExecutionException(String.format("%s cannot be evaluated as StringType", this.expression.toString()));
         }

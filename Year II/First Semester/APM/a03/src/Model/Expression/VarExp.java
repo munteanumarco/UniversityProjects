@@ -3,6 +3,7 @@ package Model.Expression;
 import Exceptions.ADTException;
 import Exceptions.ExpEvalException;
 import Model.ADT.MyIDictionary;
+import Model.ADT.MyIHeap;
 import Model.Value.Value;
 
 public class VarExp implements IExpression {
@@ -14,7 +15,7 @@ public class VarExp implements IExpression {
     }
 
     @Override
-    public Value eval(MyIDictionary<String, Value> symTable) throws ExpEvalException, ADTException {
+    public Value eval(MyIDictionary<String, Value> symTable, MyIHeap heap) throws ExpEvalException, ADTException {
         return symTable.lookup(id);
     }
 

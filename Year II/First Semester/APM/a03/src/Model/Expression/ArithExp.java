@@ -3,6 +3,7 @@ package Model.Expression;
 import Exceptions.ADTException;
 import Exceptions.ExpEvalException;
 import Model.ADT.MyIDictionary;
+import Model.ADT.MyIHeap;
 import Model.Type.IntType;
 import Model.Value.IntValue;
 import Model.Value.Value;
@@ -19,11 +20,11 @@ public class ArithExp implements IExpression {
     }
 
     @Override
-    public Value eval(MyIDictionary<String, Value> symTable) throws ExpEvalException, ADTException {
+    public Value eval(MyIDictionary<String, Value> symTable, MyIHeap heap) throws ExpEvalException, ADTException {
         Value value1,value2;
-        value1 = exp1.eval(symTable);
+        value1 = exp1.eval(symTable, heap);
         if (value1.getType().equals(new IntType())) {
-            value2 = exp2.eval(symTable);
+            value2 = exp2.eval(symTable, heap);
             if (value2.getType().equals(new IntType())) {
                 IntValue i1 = (IntValue) value1;
                 IntValue i2 = (IntValue) value2;

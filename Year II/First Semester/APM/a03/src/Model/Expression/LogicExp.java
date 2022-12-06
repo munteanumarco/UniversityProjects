@@ -3,6 +3,7 @@ package Model.Expression;
 import Exceptions.ADTException;
 import Exceptions.ExpEvalException;
 import Model.ADT.MyIDictionary;
+import Model.ADT.MyIHeap;
 import Model.Type.BoolType;
 import Model.Value.BoolValue;
 import Model.Value.Value;
@@ -21,11 +22,11 @@ public class LogicExp implements IExpression {
     }
 
     @Override
-    public Value eval(MyIDictionary<String, Value> symTable) throws ExpEvalException, ADTException {
+    public Value eval(MyIDictionary<String, Value> symTable, MyIHeap heap) throws ExpEvalException, ADTException {
         Value value1, value2;
-        value1 = exp1.eval(symTable);
+        value1 = exp1.eval(symTable, heap);
         if (value1.getType() == new BoolType()) {
-            value2 = exp2.eval(symTable);
+            value2 = exp2.eval(symTable, heap);
             if (value2.getType() == new BoolType()) {
                 BoolValue bool1 = (BoolValue) value1;
                 BoolValue bool2 = (BoolValue) value2;

@@ -3,6 +3,7 @@ package Model.Statement;
 import Exceptions.MyException;
 import Exceptions.StmtExecutionException;
 import Model.ADT.MyIDictionary;
+import Model.ADT.MyIHeap;
 import Model.ADT.MyIStack;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
@@ -27,9 +28,9 @@ public class AssignStmt implements IStmt {
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
         MyIDictionary<String, Value> symTable = state.getSymTable();
-
+        MyIHeap heap = state.getHeap();
         if (symTable.isVarDef(id)) {
-            Value val = expression.eval(symTable);
+            Value val = expression.eval(symTable, heap);
             Type typeId = (symTable.lookup(id).getType());
             if ((val.getType()).equals(typeId)) {
                 symTable.update(id, val);

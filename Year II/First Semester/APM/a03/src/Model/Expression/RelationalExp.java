@@ -3,6 +3,7 @@ package Model.Expression;
 import Exceptions.ADTException;
 import Exceptions.ExpEvalException;
 import Model.ADT.MyIDictionary;
+import Model.ADT.MyIHeap;
 import Model.Type.IntType;
 import Model.Value.BoolValue;
 import Model.Value.IntValue;
@@ -10,23 +11,23 @@ import Model.Value.Value;
 
 import java.util.Objects;
 
-public class RelationalExpression implements IExpression {
+public class RelationalExp implements IExpression {
     private IExpression expression1;
     private IExpression expression2;
     String operator;
 
-    public RelationalExpression(IExpression exp1, IExpression exp2, String operator) {
+    public RelationalExp(IExpression exp1, IExpression exp2, String operator) {
         this.expression1 = exp1;
         this.expression2 = exp2;
         this.operator = operator;
     }
 
     @Override
-    public Value eval(MyIDictionary<String, Value> symTable) throws ExpEvalException, ADTException {
+    public Value eval(MyIDictionary<String, Value> symTable, MyIHeap heap) throws ExpEvalException, ADTException {
         Value value1, value2;
-        value1 = this.expression1.eval(symTable);
+        value1 = this.expression1.eval(symTable, heap);
         if (value1.getType().equals(new IntType())) {
-            value2 = this.expression2.eval(symTable);
+            value2 = this.expression2.eval(symTable, heap);
             if (value2.getType().equals(new IntType())) {
                 IntValue val1 = (IntValue) value1;
                 IntValue val2 = (IntValue) value2;
@@ -54,7 +55,7 @@ public class RelationalExpression implements IExpression {
 
     @Override
     public IExpression deepCopy() {
-        return new RelationalExpression(expression1.deepCopy(),expression2.deepCopy(),operator);
+        return new RelationalExp(expression1.deepCopy(),expression2.deepCopy(),operator);
     }
 
     @Override

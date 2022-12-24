@@ -1,6 +1,6 @@
 package Controller;
 
-import Exceptions.MyException;
+import Exceptions.*;
 import Model.ADT.MyIStack;
 import Model.ProgramState.ProgramState;
 import Model.Statement.IStmt;
@@ -10,42 +10,22 @@ import Repository.IRepository;
 
 import java.io.IOException;
 import java.sql.Ref;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Controller {
     IRepository repository;
     boolean displayFlag;
+    ExecutorService executorService;
 
     public Controller(IRepository repository) {
         this.repository = repository;
         displayFlag = false;
-    }
-
-    public ProgramState oneStep(ProgramState state) throws MyException {
-        MyIStack<IStmt> stack = state.getStack();
-        if (stack.isEmpty()) {
-            throw new MyException("Execution stack is empty!");
-        }
-        IStmt currentStmt = stack.pop();
-        return currentStmt.execute(state);
-    }
-
-    public void allSteps() throws MyException, IOException {
-        ProgramState prg = this.repository.getCurrentProgram();
-        this.repository.logPrgStateExec();
-        display();
-        while(!prg.getStack().isEmpty()){
-            this.oneStep(prg);
-            this.repository.logPrgStateExec();
-            prg.getHeap().setContent((HashMap<Integer, Value>)safeGarbageCollector(getSymTableAddr(prg.getSymTable().getContent().values()),getHeapAddr(prg.getHeap().getContent().values()), prg.getHeap().getContent()));
-            this.repository.logPrgStateExec();
-            display();
-        }
-        System.out.println(prg.outToString());
     }
 
     public void setDisplayFlag(boolean displayFlag) {
@@ -55,7 +35,7 @@ public class Controller {
     public List<Integer> getSymTableAddr(Collection<Value> symTableValues) {
         return symTableValues.stream()
                 .filter(v -> v instanceof RefValue)
-                .map(v -> {RefValue v1 = (RefValue) v; return v1.getAddress();})
+                .map( v ->{RefValue v1 = (RefValue) v; return v1.getAddress();})
                 .collect(Collectors.toList());
     }
 
@@ -72,9 +52,76 @@ public class Controller {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-    private void display() {
+    private void display(ProgramState programState) {
         if (displayFlag) {
-            System.out.println(this.repository.getCurrentProgram().toString());
+            System.out.println(programState.toString());
         }
     }
+
+    private List<ProgramState> removeCompletedPrg(List<ProgramState> inPrgList) {
+        return inPrgList.stream()
+                .filter(p -> p.isNotCompleted())
+                .collect(Collectors.toList());
+    }
+
+    void oneStepForAllPrg(List<ProgramState> programStates) throws InterruptedException, ExpEvalException, ADTException, StmtExecutionException, IOException {
+        programStates.forEach(prg -> {
+            try {
+                repository.logPrgStateExec(prg);
+                display(prg);
+            } catch (IOException | ADTException e ) {
+                System.out.println(e.getMessage());
+            }
+        });
+
+        List<Callable<ProgramState>> callList = programStates.stream()
+                .map((ProgramState p) -> (Callable<ProgramState>)(() -> {return p.oneStep();}))
+                .collect(Collectors.toList());
+
+        List<ProgramState> newPrgList = executorService.invokeAll(callList).stream()
+                .map(future -> {
+                    try {
+                        return future.get();
+                    } catch (ExecutionException |InterruptedException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    return null;
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        programStates.addAll(newPrgList);
+        programStates.forEach(programState -> {
+            try {
+                repository.logPrgStateExec(programState);
+            } catch (IOException | ADTException e) {
+                System.out.println(e.getMessage());
+            }
+        });
+
+        repository.setProgramList(programStates);
+    }
+
+    public void allSteps() throws MyException, IOException, InterruptedException {
+        executorService = Executors.newFixedThreadPool(2);
+        List<ProgramState> programStates = removeCompletedPrg(repository.getProgramList());
+        while (programStates.size() > 0) {
+            conservativeGarbageCollector(programStates);
+            oneStepForAllPrg(programStates);
+            programStates = removeCompletedPrg(repository.getProgramList());
+        }
+        executorService.shutdownNow();
+        repository.setProgramList(programStates);
+    }
+
+    public void conservativeGarbageCollector(List<ProgramState> programStates) {
+        List<Integer> symTableAddresses = Objects.requireNonNull(programStates.stream()
+                .map(p -> getSymTableAddr(p.getSymTable().getContent().values())))
+                .map(Collection::stream)
+                .reduce(Stream::concat).orElse(null)
+                .collect(Collectors.toList());
+        programStates.forEach(p -> {
+            p.getHeap().setContent((HashMap<Integer, Value>) safeGarbageCollector(symTableAddresses, getHeapAddr(p.getHeap().getContent().values()),p.getHeap().getContent()));
+        });
+    }
+
 }

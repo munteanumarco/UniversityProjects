@@ -44,7 +44,7 @@ public class IfStmt implements IStmt {
             throw new StmtExecutionException("Please provide a boolean expression in an if statement.");
         }
 
-        return state;
+        return null;
     }
 
     @Override

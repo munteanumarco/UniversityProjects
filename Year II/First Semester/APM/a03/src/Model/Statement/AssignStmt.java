@@ -41,7 +41,7 @@ public class AssignStmt implements IStmt {
         } else {
             throw new StmtExecutionException(String.format("The used variable %s was not declared before.", id));
         }
-        return state;
+        return null;
     }
 
     @Override

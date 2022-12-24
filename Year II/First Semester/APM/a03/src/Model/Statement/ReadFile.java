@@ -58,7 +58,7 @@ public class ReadFile implements IStmt {
         } catch (IOException e) {
             throw new StmtExecutionException(String.format("Cannot read from file %s", fileName.getValue()));
         }
-        return state;
+        return null;
     }
 
     @Override

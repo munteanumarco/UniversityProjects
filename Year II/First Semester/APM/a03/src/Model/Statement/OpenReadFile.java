@@ -56,6 +56,6 @@ public class OpenReadFile implements IStmt {
         } else {
             throw new StmtExecutionException(String.format("%s does not evaluate to StringType", this.expression.toString()));
         }
-        return state;
+        return null;
     }
 }

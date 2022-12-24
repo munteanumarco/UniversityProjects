@@ -46,7 +46,7 @@ public class CloseReadFile implements IStmt {
         }
         fileTable.remove(fileName.getValue());
         state.setFileTable(fileTable);
-        return state;
+        return null;
     }
 
     @Override

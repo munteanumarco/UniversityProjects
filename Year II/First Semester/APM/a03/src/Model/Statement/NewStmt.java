@@ -46,7 +46,7 @@ public class NewStmt implements IStmt {
         symTable.put(varName, new RefValue(newPos, ref.getLocationType()));
         state.setSymTable(symTable);
         state.setHeap(heap);
-        return state;
+        return null;
     }
 
     @Override

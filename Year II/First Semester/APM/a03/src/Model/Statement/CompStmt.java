@@ -24,7 +24,7 @@ public class CompStmt implements IStmt{
         stack.push(secondStmt);
         stack.push(firstStmt);
         state.setStack(stack);
-        return state;
+        return null;
     }
 
     @Override

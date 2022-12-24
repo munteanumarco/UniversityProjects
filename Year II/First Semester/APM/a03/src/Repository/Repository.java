@@ -33,14 +33,14 @@ public class Repository implements IRepository {
     }
 
     @Override
-    public ProgramState getCurrentProgram() {
-        return this.programStates.get(this.currentPosition);
+    public void logPrgStateExec(ProgramState prgState) throws IOException, ADTException {
+        PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)));
+        logFile.println(prgState.programStateToString());
+        logFile.close();
     }
 
     @Override
-    public void logPrgStateExec() throws IOException, ADTException {
-        PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)));
-        logFile.println(this.programStates.get(0).programStateToString());
-        logFile.close();
+    public void setProgramList(List<ProgramState> list) {
+        this.programStates = list;
     }
 }

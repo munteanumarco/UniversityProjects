@@ -20,15 +20,27 @@ public class ProgramState {
     private MyIDictionary<String, BufferedReader> fileTable;
     private MyIHeap heap;
     private IStmt originalProgram;
+    private int id;
+    private static int lastId = 0;
 
     public ProgramState(MyIStack<IStmt> stack, MyIDictionary<String, Value> symTable, MyIList<Value> out, MyIDictionary<String, BufferedReader> fileTable,MyIHeap heap, IStmt originalProgram) {
         this.stack = stack;
         this.symTable = symTable;
         this.out = out;
         this.fileTable = fileTable;
-        this.originalProgram = originalProgram;
+        this.originalProgram = originalProgram.deepCopy();
         this.stack.push(this.originalProgram);
         this.heap = heap;
+        this.id = this.setId();
+    }
+
+    public ProgramState(MyIStack<IStmt> stack, MyIDictionary<String, Value> symTable, MyIList<Value> out, MyIDictionary<String, BufferedReader> fileTable,MyIHeap heap) {
+        this.stack = stack;
+        this.symTable = symTable;
+        this.out = out;
+        this.fileTable = fileTable;
+        this.heap = heap;
+        this.id = this.setId();
     }
 
     public MyIStack<IStmt> getStack() {
@@ -71,7 +83,7 @@ public class ProgramState {
     }
     @Override
     public String toString() {
-        return "Execution stack: \n" + stack.getReversed() + "\nSymbol table: \n" + symTable.toString() + "\nOutput list: \n" + out.toString() + "\n File Table: \n" + fileTable.toString() + "\n Heap :\n" + heap.toString();
+        return "Id: " + id + "\nExecution stack: \n" + stack.getReversed() + "\nSymbol table: \n" + symTable.toString() + "\nOutput list: \n" + out.toString() + "\n File Table: \n" + fileTable.toString() + "\n Heap :\n" + heap.toString();
     }
     public String exeStackToString() {
         StringBuilder exeStackStringBuilder = new StringBuilder();
@@ -115,8 +127,24 @@ public class ProgramState {
     }
 
     public String programStateToString() throws ADTException {
-        return "Execution stack: \n" + exeStackToString() + "Symbol table: \n" + symTableToString() + "Output list: \n" + outToString() + "File table:\n" + fileTableToString() + "Heap:\n" + heapToString();
+        return "Id: " + id + "\nExecution stack: \n" + exeStackToString() + "Symbol table: \n" + symTableToString() + "Output list: \n" + outToString() + "File table:\n" + fileTableToString() + "Heap:\n" + heapToString();
     }
 
+    public boolean isNotCompleted() {
+        return !this.stack.isEmpty();
+    }
+
+    public ProgramState oneStep() throws MyException {
+        if (stack.isEmpty()) {
+            throw new MyException("PrgState stack is empty!");
+        }
+        IStmt currentStmt = stack.pop();
+        return currentStmt.execute(this);
+    }
+
+    public synchronized int setId() {
+        lastId++;
+        return lastId;
+    }
 
 }

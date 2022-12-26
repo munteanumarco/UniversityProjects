@@ -50,6 +50,15 @@ public class MyDictionary<K,V> implements MyIDictionary<K,V> {
     }
 
     @Override
+    public MyIDictionary<K, V> deepcopy() throws ADTException {
+        MyIDictionary<K,V> newDict = new MyDictionary<>();
+        for (K key: keySet()) {
+            newDict.put(key, lookup(key));
+        }
+        return newDict;
+    }
+
+    @Override
     public Set<K> keySet() {
         return this.map.keySet();
     }

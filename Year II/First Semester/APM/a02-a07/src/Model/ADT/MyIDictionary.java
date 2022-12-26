@@ -15,4 +15,5 @@ public interface MyIDictionary<K,V> {
     void remove(K key) throws InterpreterException;
     Set<K> keySet();
     Map<K,V> getContent();
+    MyIDictionary<K,V> deepcopy() throws ADTException;
 }

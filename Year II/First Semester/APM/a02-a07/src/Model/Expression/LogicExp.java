@@ -2,9 +2,11 @@ package Model.Expression;
 
 import Exceptions.ADTException;
 import Exceptions.ExpEvalException;
+import Exceptions.MyException;
 import Model.ADT.MyIDictionary;
 import Model.ADT.MyIHeap;
 import Model.Type.BoolType;
+import Model.Type.Type;
 import Model.Value.BoolValue;
 import Model.Value.Value;
 
@@ -46,6 +48,21 @@ public class LogicExp implements IExpression {
             throw new ExpEvalException("First operand cannot be evaluated as boolean");
         }
         return null;
+    }
+
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        Type t1 = exp1.typeCheck(typeEnv);
+        Type t2 = exp2.typeCheck(typeEnv);
+        if (t1.equals(new BoolType())) {
+            if (t2.equals(new BoolType())) {
+                return new BoolType();
+            } else {
+                throw new MyException("Second operand is not a boolean");
+            }
+        } else {
+            throw new MyException("First operand is not a boolean");
+        }
     }
 
     @Override

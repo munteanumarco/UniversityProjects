@@ -8,6 +8,7 @@ import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.IntType;
 import Model.Type.StringType;
+import Model.Type.Type;
 import Model.Value.IntValue;
 import Model.Value.StringValue;
 import Model.Value.Value;
@@ -59,6 +60,19 @@ public class ReadFile implements IStmt {
             throw new StmtExecutionException(String.format("Cannot read from file %s", fileName.getValue()));
         }
         return null;
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        if (expression.typeCheck(typeEnv).equals(new StringType())) {
+            if (typeEnv.lookup(varName).equals(new IntType())) {
+                return typeEnv;
+            } else {
+                throw new StmtExecutionException("ReadFile requires an int as its variable parameter");
+            }
+        } else {
+            throw new StmtExecutionException("ReadFile requires a string as an expression parameter");
+        }
     }
 
     @Override

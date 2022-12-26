@@ -7,6 +7,7 @@ import Model.ADT.MyIHeap;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.RefType;
+import Model.Type.Type;
 import Model.Value.RefValue;
 import Model.Value.Value;
 
@@ -47,6 +48,17 @@ public class NewStmt implements IStmt {
         state.setSymTable(symTable);
         state.setHeap(heap);
         return null;
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        Type typeVar = typeEnv.lookup(varName);
+        Type typeExp = expression.typeCheck(typeEnv);
+        if (typeVar.equals(new RefType(typeExp))) {
+            return typeEnv;
+        } else {
+            throw new MyException("New Stmt: right hand side and left hand side have different types");
+        }
     }
 
     @Override

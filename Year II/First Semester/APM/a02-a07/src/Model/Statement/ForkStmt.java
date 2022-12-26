@@ -6,6 +6,7 @@ import Model.ADT.MyIDictionary;
 import Model.ADT.MyIStack;
 import Model.ADT.MyStack;
 import Model.ProgramState.ProgramState;
+import Model.Type.Type;
 import Model.Value.Value;
 
 import java.nio.file.spi.FileSystemProvider;
@@ -27,6 +28,12 @@ public class ForkStmt implements IStmt {
             newSymTable.put(entry.getKey(), entry.getValue().deepCopy());
         }
         return new ProgramState(newStack, newSymTable, state.getOut(), state.getFileTable(), state.getHeap());
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        statement.typeCheck(typeEnv.deepcopy());
+        return typeEnv;
     }
 
     @Override

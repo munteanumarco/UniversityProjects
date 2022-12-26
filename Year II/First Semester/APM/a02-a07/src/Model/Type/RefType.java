@@ -9,7 +9,7 @@ public class RefType implements Type {
     public RefType(Type inner) {
         this.inner = inner;
     }
-    Type getInner() {
+    public Type getInner() {
         return this.inner;
     }
 

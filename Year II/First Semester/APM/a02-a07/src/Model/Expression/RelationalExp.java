@@ -2,9 +2,12 @@ package Model.Expression;
 
 import Exceptions.ADTException;
 import Exceptions.ExpEvalException;
+import Exceptions.MyException;
 import Model.ADT.MyIDictionary;
 import Model.ADT.MyIHeap;
+import Model.Type.BoolType;
 import Model.Type.IntType;
+import Model.Type.Type;
 import Model.Value.BoolValue;
 import Model.Value.IntValue;
 import Model.Value.Value;
@@ -51,6 +54,21 @@ public class RelationalExp implements IExpression {
         } else
             throw new ExpEvalException("First operand in not an integer.");
         return null;
+    }
+
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        Type t1 = expression1.typeCheck(typeEnv);
+        Type t2 = expression2.typeCheck(typeEnv);
+        if (t1.equals(new IntType())) {
+            if (t2.equals(new IntType())) {
+                return new BoolType();
+            } else {
+                throw new MyException("Second operand is not IntType");
+            }
+        } else {
+            throw new MyException("First operand is not IntType");
+        }
     }
 
     @Override

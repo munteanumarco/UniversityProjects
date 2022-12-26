@@ -2,9 +2,12 @@ package Model.Statement;
 
 import Exceptions.ADTException;
 import Exceptions.ExpEvalException;
+import Exceptions.MyException;
+import Model.ADT.MyIDictionary;
 import Model.ADT.MyIList;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
+import Model.Type.Type;
 import Model.Value.Value;
 
 public class PrintStmt implements IStmt {
@@ -22,6 +25,12 @@ public class PrintStmt implements IStmt {
     @Override
     public String toString() {
         return String.format("Print(%s)", expression.toString());
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        expression.typeCheck(typeEnv);
+        return typeEnv;
     }
 
     @Override

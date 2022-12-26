@@ -31,6 +31,12 @@ public class VarDeclStmt implements IStmt {
     }
 
     @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        typeEnv.put(name, type);
+        return typeEnv;
+    }
+
+    @Override
     public String toString() {
         return String.format("%s %s", type.toString(), name);
     }

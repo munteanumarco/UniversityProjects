@@ -2,10 +2,12 @@ package Model.Statement;
 
 import Exceptions.MyException;
 import Exceptions.StmtExecutionException;
+import Model.ADT.MyIDictionary;
 import Model.ADT.MyIStack;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.BoolType;
+import Model.Type.Type;
 import Model.Value.BoolValue;
 import Model.Value.Value;
 
@@ -45,6 +47,18 @@ public class IfStmt implements IStmt {
         }
 
         return null;
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        Type tExp = expression.typeCheck(typeEnv);
+        if (tExp.equals(new BoolType())) {
+            thenStmt.typeCheck(typeEnv.deepcopy());
+            elseStmt.typeCheck(typeEnv.deepcopy());
+            return typeEnv;
+        } else {
+            throw new StmtExecutionException("The condition of IF cannot be evaluated to boolean");
+        }
     }
 
     @Override

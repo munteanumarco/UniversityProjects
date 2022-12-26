@@ -2,9 +2,11 @@ package Model.Expression;
 
 import Exceptions.ADTException;
 import Exceptions.ExpEvalException;
+import Exceptions.MyException;
 import Model.ADT.MyIDictionary;
 import Model.ADT.MyIHeap;
 import Model.Type.IntType;
+import Model.Type.Type;
 import Model.Value.IntValue;
 import Model.Value.Value;
 
@@ -53,6 +55,22 @@ public class ArithExp implements IExpression {
             throw new ExpEvalException("First operand is not an integer.");
         }
         return null;
+    }
+
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        Type type1, type2;
+        type1 = exp1.typeCheck(typeEnv);
+        type2 = exp2.typeCheck(typeEnv);
+        if (type1.equals(new IntType())) {
+            if (type2.equals(new IntType())) {
+                return new IntType();
+            } else {
+                throw new MyException("Second operand is not an integer");
+            }
+        } else {
+            throw new MyException("First operand is not an integer");
+        }
     }
 
     @Override

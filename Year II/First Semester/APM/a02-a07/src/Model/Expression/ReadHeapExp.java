@@ -2,9 +2,11 @@ package Model.Expression;
 
 import Exceptions.ADTException;
 import Exceptions.ExpEvalException;
+import Exceptions.MyException;
 import Model.ADT.MyIDictionary;
 import Model.ADT.MyIHeap;
 import Model.Type.RefType;
+import Model.Type.Type;
 import Model.Value.RefValue;
 import Model.Value.Value;
 
@@ -25,6 +27,17 @@ public class ReadHeapExp implements IExpression {
         }
         RefValue ref = (RefValue) value;
         return heap.get(ref.getAddress());
+    }
+
+    @Override
+    public Type typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        Type t = expression.typeCheck(typeEnv);
+        if (t instanceof RefType) {
+            RefType reft = (RefType) t;
+            return reft.getInner();
+        } else {
+            throw new MyException("the rH argument is not a RefType");
+        }
     }
 
     @Override

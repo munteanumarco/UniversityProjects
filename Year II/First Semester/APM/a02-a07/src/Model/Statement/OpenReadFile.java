@@ -7,9 +7,11 @@ import Model.ADT.MyIHeap;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.StringType;
+import Model.Type.Type;
 import Model.Value.StringValue;
 import Model.Value.Value;
 
+import javax.xml.crypto.dsig.spec.DigestMethodParameterSpec;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -30,6 +32,15 @@ public class OpenReadFile implements IStmt {
     @Override
     public String toString() {
         return String.format("OpenReadFile(%s)", this.expression);
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        if (expression.typeCheck(typeEnv).equals(new StringType())) {
+            return typeEnv;
+        } else {
+            throw new StmtExecutionException("OpenReadFile must take a string");
+        }
     }
 
     @Override

@@ -8,6 +8,7 @@ import Model.ADT.MyIStack;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.RefType;
+import Model.Type.Type;
 import Model.Value.RefValue;
 import Model.Value.Value;
 
@@ -44,6 +45,15 @@ public class WriteHeapStmt implements IStmt {
         heap.update(ref.getAddress(), value);
         state.setHeap(heap);
         return null;
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typeCheck(MyIDictionary<String, Type> typeEnv) throws MyException {
+        if (typeEnv.lookup(varName).equals(new RefType(expression.typeCheck(typeEnv)))) {
+            return typeEnv;
+        } else {
+            throw new StmtExecutionException("WriteHeap: right hand side and left hand side have different types");
+        }
     }
 
     @Override

@@ -1,0 +1,178 @@
+%permutari
+
+candidate(N, N).
+candidate(N, R):-
+    N>1,
+    N1 is N-1,
+    candidate(N1,R).
+
+member([E|_], E).
+member([_|T],E):-
+    member(T,E).
+
+perm(N,V,L):-
+    candidate(N,E),
+    permAux(N,V,L,1,[E]).
+
+permAux(N,_,L,N,L):-!.
+permAux(N,V,L,CN,[H|T]):-
+    candidate(N,E),
+    abs(H-E) >= V,
+    not(member([H|T],E)),
+    CN1 is CN + 1,
+    permAux(N,V,L,CN1,[E,H|T]).
+
+permall(N,V,RET):-
+    findall(L,perm(N,V,L),RET).
+
+
+%combinari with sum
+
+candidate([H|_],H).
+candidate([_|T], R):-
+    candidate(T, R).
+
+
+combSum(L,K,S,R):-
+    candidate(L,E),
+    combAux(L,K,S,R,1,E,[E]).
+
+combAux(_,K,S,R,K,S,R):-!.
+combAux(L,K,S,R,CK,CS,[H|T]):-
+    candidate(L,E),
+    E > H,
+    CS1 is CS + E,
+    CS1 =< S,
+    CK1 is CK + 1,
+    combAux(L,K,S,R,CK1,CS1,[E,H|T]).
+
+comball(L,K,S,RET):-
+    findall(R,combSum(L,K,S,R),RET).
+
+
+ %permutari simple
+
+candidate([H|_],H).
+candidate([_|T], R):-
+    candidate(T,R).
+
+
+perm(L,R,N):-
+    candidate(L,E),
+    permAux(L,R,N,1,[E]).
+  
+permAux(_,R,N,N,R):-!.
+permAux(L,R,N,CN,CR):-
+    candidate(L,E),
+    not(candidate(CR,E)),
+    CN1 is CN + 1,
+    permAux(L,R,N,CN1,[E|CR]).
+
+llength([],0).
+llength([_|T],R):-
+    llength(T,R1),
+    R is R1 + 1.
+
+permall(L,RET):-
+    llength(L,N),
+    findall(R,perm(L,R,N),RET).   
+
+
+%sum de nr = N
+
+candidate([H|_],H).
+candidate([_|T], R):-
+    candidate(T,R).
+
+
+sumN(L,N,R):-
+    candidate(L,E),
+    sumNAux(L,N,R,1,[E]).
+    
+sumNAux(_,N,R,N,R):-!.
+sumNAux(L,N,R,CN,CR):-
+    candidate(L,E),
+    CN1 is CN + E,
+    CN1 =< N,
+    sumNAux(L,N,R,CN1,[E|CR]).
+
+sumall(L,N,RET):-
+    findall(R,sumN(L,N,R),RET).
+
+
+%arranjamente
+
+candidate([H|_],H).
+candidate([_|T],R):-
+    candidate(T,R).
+
+arrang(L,K,P,S,R):-
+    candidate(L,E),
+    arrangAux(L,K,P,S,R,1,E,E,[E]).
+
+arrangAux(_,K,P,S,R,K,P,S,R):-!.
+arrangAux(L,K,P,S,R,CK,CP,CS,CR):-
+    candidate(L,E),
+    not(candidate(CR,E)),
+    CS1 is CS + E,
+    CS1 =< S,
+    CP1 is CP * E,
+    CP1 =< P,
+    CK1 is CK + 1,
+    arrangAux(L,K,P,S,R,CK1,CP1,CS1,[E|CR]).
+    
+    
+arrangall(L,K,P,S,RET):-
+    findall(R,arrang(L,K,P,S,R), RET).
+
+
+
+%subsets
+
+candidate([H|_],H).
+candidate([_|T],R):-
+    candidate(T,R).
+
+%subs(L:initial list, N:number, LN:length of initial list, R:result)
+subs(L,N,LN,R):-
+    candidate(L,E),
+    subsAux(L,N,LN,R,1,E,[E]).
+
+%subsAux(L:initial list, N:number, LN:length of initial list, R:result,
+% CN:current length of current result, S: current sum of current result, CR: current result)
+subsAux(_,N,_,R,CN,S,CR):-
+    CN >= N,
+    S mod 3 =:= 0,
+    R = CR.
+subsAux(L,N,LN,R,CN,S,[H|T]):-
+    CN < LN,
+    candidate(L,E),
+    E < H,
+    S1 is S + E,
+    CN1 is CN + 1,
+    subsAux(L,N,LN,R,CN1,S1,[E,H|T]).
+
+llength([],0).
+llength([_|T],R):-
+    llength(T,R1),
+    R is R1 + 1.
+
+subsall(L,N,RET):-
+    llength(L,LN),
+    findall(R,subs(L,N,LN,R),RET).
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+

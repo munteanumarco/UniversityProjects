@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/University/UniversityProjects/Year II/PLF/r1-model-cpp/lista.h
+
+C:/University/UniversityProjects/Year II/PLF/r1-model-cpp/main.cpp
+lista.h
+C:/University/UniversityProjects/Year II/PLF/r1-model-cpp/lista.h
+iostream
+-
+

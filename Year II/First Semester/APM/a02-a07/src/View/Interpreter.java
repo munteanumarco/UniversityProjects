@@ -230,7 +230,7 @@ public class Interpreter {
         } catch (MyException e) {
             System.out.println(e.getMessage());
         }
-        
+
         menu.show();
     }
 }

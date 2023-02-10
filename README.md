@@ -45,6 +45,45 @@
             </li>
         </ul>
     </li>
+    
+    <li>:blue_book: Semester 3
+        <ul>
+            <li>
+                <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20II/First%20Semester/APM">
+                    :computer: Advanced Programming Methods
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20II/First%20Semester/Databases">
+                    :postbox: Databases
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20II/First%20Semester/Computer%20Networks">
+                    :repeat: Computer Networks
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20II/First%20Semester/Probs%20and%20Statistics">
+                    :penguin: Probability and Statistics
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20II/First%20Semester/PLF">
+                    :penguin: Functional and Logic Programming
+                </a>
+            </li>
+        </ul>
+    </li>
+    
 </ul>
         
         

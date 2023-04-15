@@ -1,0 +1,18 @@
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  .game-container img {
+    position: absolute;
+    cursor: pointer;
+  }
+  #score {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }

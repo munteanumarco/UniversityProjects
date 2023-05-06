@@ -1,0 +1,27 @@
+<!-- 
+    Course 
+    - cId
+    - name
+    - description
+    - credits
+
+    User
+    - id 
+    - username
+    - password
+    - email
+    - user_role
+
+    Student
+    - id
+    - firstName
+    - lastName
+    - group
+    
+    Professor
+    - id
+    - firstName
+    - lastName
+    - department
+
+ -->

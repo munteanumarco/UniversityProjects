@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log("start fetching data");
     $.ajax({
-        url: 'profileStudentRequest.php',
+        url: 'profileProfessorRequest.php',
         type: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -10,7 +10,7 @@ $(document).ready(function() {
             var newRow = $('<tr>');
             newRow.append($('<td>').text(data.firstName));
             newRow.append($('<td>').text(data.lastName));
-            newRow.append($('<td>').text(data.group));
+            newRow.append($('<td>').text(data.department));
             tableBody.append(newRow);
         },
         error: function(xhr, status, error) {

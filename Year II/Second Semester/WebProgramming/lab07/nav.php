@@ -23,15 +23,19 @@
                     if($_SESSION['role'] == 'student') {
                         echo '<li class="nav-item">
                         <a class="nav-link" href="studentPanelPage.php">Panel</a>
-                        </li>';
-                    } else {
-                        echo '<li class="nav-item">
-                        <a class="nav-link" href="professorPanel.php">Panel</a>
-                        </li>';
-                    }
-                    echo '<li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                     <a class="nav-link" href="profilePageStudent.php">My Profile</a>
                     </li>';
+                    } else {
+                        echo '<li class="nav-item">
+                        <a class="nav-link" href="professorPanelPage.php">Panel</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="profilePageProfessor.php">My Profile</a>
+                        </li>';
+                    }
+                    
                     echo '<li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="logout.php">Logout</a>
                     </li>';

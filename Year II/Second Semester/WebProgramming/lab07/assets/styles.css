@@ -29,6 +29,7 @@
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
+    text-align: center;
 }
 
 .styled-table tbody tr {
@@ -46,4 +47,9 @@
 .styled-table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
+}
+
+.pagination {
+    display: flex;
+    gap: 2rem;
 }

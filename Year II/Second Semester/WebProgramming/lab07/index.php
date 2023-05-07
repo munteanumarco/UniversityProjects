@@ -22,7 +22,9 @@
                     <h3>Your role is ' . $_SESSION['role'] . '</h3>'
                     ;
         } else {
-            echo '<h1> Hello!</h1><h3>Login to access the platform</h3>';
+            echo '<h1> Hello!</h1>
+            <h3>Login to access the platform</h3>
+            <a href="login.php"><button type="button" class="btn btn-primary">Login</button></a>';
         }
     ?>
 </div>

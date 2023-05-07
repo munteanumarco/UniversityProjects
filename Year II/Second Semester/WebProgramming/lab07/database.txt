@@ -25,3 +25,8 @@
     - department
 
  -->
+
+ ProfessorId CourseId Group 
+
+ 5 2 925
+ 

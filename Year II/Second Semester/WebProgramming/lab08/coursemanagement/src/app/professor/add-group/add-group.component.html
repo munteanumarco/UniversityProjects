@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Add new Group</h1>
+    <div class="container">
+        <form action="addProfGroupReq.php" method="POST" class="container">
+            <label for="groups">Select the group:</label>
+            <select name="groups" id="groups" [(ngModel)]="selectedGroup" *ngIf="$groups | async as groups">
+                <option *ngFor="let group of groups" value="{{group.facultyGroup}}">{{group.facultyGroup}}</option>   
+            </select>
+            <label for="courses">Select the course:</label>
+            <select name="courses" id="courses" [(ngModel)]="selectedCourse" *ngIf="$courses | async as courses">
+                <option *ngFor="let course of courses" value="{{course.courseId}}">{{course.courseName}}</option>   
+            </select>
+            <button type="submit" class="btn btn-success" (click)="add()">Add</button>
+        </form>
+    </div>
+</div>

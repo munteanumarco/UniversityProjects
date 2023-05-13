@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Welcome to the grading page</h1>
+    <table id="data-table" class="styled-table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Grade</th>
+                <ng-container *ngIf="grade$ | async as grade">
+                    <th *ngIf="grade.grade"></th>
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody *ngIf="student$ | async as student">
+            <tr>
+                <td>{{student.firstName}}</td>
+                <td>{{student.lastName}}</td>
+                <ng-container *ngIf="grade$ | async as grade">
+                    <ng-container *ngIf="grade.grade !== null">
+                        <td>{{grade.grade == null ? "No grade yet": grade.grade}}</td>
+                        <td *ngIf="grade.grade"><button class="btn btn-danger" (click)="removeGrade()">x</button></td>
+                    </ng-container>
+                </ng-container>
+    
+            </tr>
+        </tbody>
+    </table>
+
+    <form class="grade-form">
+        <label for="gradeInput">Insert new grade:</label>
+        <input type="number" min="1" max="10" id="gradeInput"  [(ngModel)]="givenGrade" name="grade" style="width: 100px;">
+        <button class="btn btn-primary" (click)="gradeStudent()" type="submit">Submit</button>
+    </form>
+
+
+</div>

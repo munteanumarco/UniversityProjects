@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Here you can see your groups</h1>
+    <table id="data-table" class="styled-table">
+        <thead>
+            <tr>
+                <th>Group</th>
+                <th>Course Name</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody *ngIf="this.groups$ | async as groups">
+            <tr *ngFor="let group of groups">
+                <td>{{group.group}}</td>
+                <td>{{group.courseName}}</td>
+                <td><button class="btn btn-primary" routerLink="/group/{{group.courseId}}/{{group.group}}" >See groups</button></td>
+                <td><button class="btn btn-danger" (click)="removeGroup(group.group, group.courseId)">x</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" routerLink="/add-group" class="btn btn-success">Add</button>
+</div>

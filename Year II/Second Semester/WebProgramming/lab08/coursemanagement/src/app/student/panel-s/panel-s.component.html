@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Here you can see your grades</h1>
+    <table id="data-table" class="styled-table">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Number of Credits</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="this.grades$ | async as grades">
+            <tr *ngFor="let grade of grades">
+                <td>{{ grade.name }}</td>
+                <td>{{ grade.credits }}</td>
+                <td>{{ grade.grade }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

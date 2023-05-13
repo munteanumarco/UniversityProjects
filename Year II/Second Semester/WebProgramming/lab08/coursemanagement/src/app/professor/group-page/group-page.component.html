@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>See the students</h1>
+    <h4>Group {{this.group}}</h4>
+    <table id="data-table" class="styled-table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Grade</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody *ngIf="students$ | async as students">
+            <tr *ngFor="let student of students">
+                <td>{{student.firstName}}</td>
+                <td>{{student.lastName}}</td>
+                <td>{{student.grade == null ? "No grade yet": student.grade}}</td>
+                <td *ngIf="student.grade == null"><button class="btn btn-primary" routerLink="/grade/{{this.courseId}}/{{student.studentId}}">Add grade</button></td>
+                <td *ngIf="student.grade != null"><button class="btn btn-primary" routerLink="/grade/{{this.courseId}}/{{student.studentId}}">Modify grade</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <button class="btn btn-primary" id="prev-btn" [disabled]="disablePrev" (click)="prev()">Prev</button>
+        <span id="page-info">{{this.currentPage}} of {{this.totalPages}}</span>
+        <button class="btn btn-primary" id="next-btn" [disabled]="disableNext" (click)="next()">Next</button>
+    </div>
+
+</div>

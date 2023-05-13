@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Welcome back !</h1>
+    <h4>Fill in your credentials below</h4>
+    <form>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="username" class="form-control" id="username" [(ngModel)]="usernameInput" name="username">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="passwordInput" name="password">
+    </div>
+    <button type="button" name="submit" (click)="login()"  class="btn btn-primary">Submit</button>
+    </form>
+</div>

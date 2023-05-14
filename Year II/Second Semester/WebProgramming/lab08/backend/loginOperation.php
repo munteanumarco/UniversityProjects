@@ -1,8 +1,16 @@
 <?php  
+    require 'vendor/autoload.php';
+    use Firebase\JWT\JWT;
+
     header("Access-Control-Allow-Origin: http://localhost:4200");
     header("Access-Control-Allow-Methods: POST");
     header("Access-Control-Allow-Headers: Content-Type");
     http_response_code(200);
+
+    ini_set('display_errors', 0);
+    ini_set('log_errors', 1);
+    ini_set('error_log', '/path/to/error.log');
+
     
     $json = file_get_contents('php://input');
     $_POST = json_decode($json, true);
@@ -26,9 +34,26 @@
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 
-    $response = array('user_id' => $dbId, 'role' => $dbUserRole, 'username' => $formUser);
-    echo json_encode($response);
-    exit();
+    $algorithm = 'HS256';
+    $secretKey = "my-secret-key";
+    $payload = array(
+        'user_id' => $dbId,
+        'role' => $dbUserRole,
+        'username' => $formUser,
+        'exp' => time() + 3600 * 24
+    );
+
+    try {
+        $jwt = JWT::encode($payload, $secretKey, $algorithm);
+        $response = array(
+            'token' => $jwt
+        );
+    
+        echo json_encode($response);
+    } catch (Exception $e) {
+        error_log("JWT encoding error: " . $e->getMessage());
+        echo json_encode(array("error" => "Internal server error" . $e->getMessage()));
+    }
 ?>
 
 

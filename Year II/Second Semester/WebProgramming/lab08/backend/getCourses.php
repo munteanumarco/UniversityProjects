@@ -2,8 +2,15 @@
 
 header("Access-Control-Allow-Origin: http://localhost:4200");
 header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 http_response_code(200);
+
+require_once 'validateProfessor.php';
+if (!validate()) {
+    echo json_encode(array("error" => "Unauthorized"));
+    exit();
+}
+
 require_once 'db.php';
 $stmt = mysqli_prepare($conn, "SELECT C.id, C.name
                                 FROM Course C");

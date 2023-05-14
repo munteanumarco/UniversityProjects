@@ -1,8 +1,18 @@
 <?php
+require 'vendor/autoload.php';
+use Firebase\JWT\JWT;
+
 header("Access-Control-Allow-Origin: http://localhost:4200");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 http_response_code(200);
+
+require_once 'validateProfessor.php';
+if (!validate()) {
+    echo json_encode(array("error" => "Unauthorized"));
+    exit();
+}
+
 require_once 'db.php';
 
 $group = $_GET['group'];

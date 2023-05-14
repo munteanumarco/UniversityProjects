@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,12 +13,13 @@ import { PanelPComponent } from './professor/panel-p/panel-p.component';
 import { GroupPageComponent } from './professor/group-page/group-page.component';
 import { AddGroupComponent } from './professor/add-group/add-group.component';
 import { GradeStudentComponent } from './professor/grade-student/grade-student.component';
+import { AuthModule } from './auth/auth.module';
+import { JwtInterceptor } from './auth/jwt.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
     PanelSComponent,
     ProfileSComponent,
     PanelPComponent,
@@ -30,9 +31,12 @@ import { GradeStudentComponent } from './professor/grade-student/grade-student.c
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

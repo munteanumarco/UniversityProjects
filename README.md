@@ -15,7 +15,7 @@
             </li>
         </ul>
     </li>
-    <li>:green_book: Semester 2
+    <li>:green_book: Semester 4
         <ul>
             <li>
                 <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20I/Second%20Semester/Operating%20Systems">
@@ -82,7 +82,29 @@
             </li>
         </ul>
     </li>
-    
+    <li>:green_book: Semester 2
+        <ul>
+            <li>
+                <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20II/Second%20Semester/AI">
+                    :computer: Artificial Intelligence
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20II/Second%20Semester/SDI">
+                    :postbox: Systems Design and Implementation
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20II/Second%20Semester/WebProgramming">
+                    :repeat: Web Programming
+                </a>
+            </li>
+        </ul>
+    </li>
 </ul>
         
         

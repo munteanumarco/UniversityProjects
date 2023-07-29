@@ -15,7 +15,7 @@
             </li>
         </ul>
     </li>
-    <li>:green_book: Semester 4
+    <li>:green_book: Semester 2
         <ul>
             <li>
                 <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20I/Second%20Semester/Operating%20Systems">
@@ -82,7 +82,7 @@
             </li>
         </ul>
     </li>
-    <li>:green_book: Semester 2
+    <li>:green_book: Semester 4
         <ul>
             <li>
                 <a href="https://github.com/munteanumarco/UniversityProjects/tree/main/Year%20II/Second%20Semester/AI">

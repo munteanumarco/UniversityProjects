@@ -1,0 +1,26 @@
+<div *ngIf="!error">
+    <div>
+        <h1>Gradebook for examiner {{name}} </h1>
+        <table>
+            <thead>
+                <th>#</th>
+                <th>Student Name</th>
+                <th>Grade</th>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let examination of examinations;let indexOfelement=index;">
+                    <td class="counter">{{indexOfelement + 1}}</td>
+                    <td>{{examination.title}}</td>
+                    <td><a routerLink="/examination/dashboard/{{examination.id}}">Link</a></td>
+                    <td></td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="error">
+    <h1 style="color: red;">Error GUID(s) is(are) not valid!</h1>
+</div>
+
+

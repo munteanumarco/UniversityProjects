@@ -1,0 +1,20 @@
+<h1>Examination Creation Page</h1>
+<div>
+    <div class="mb-3">
+        <label for="titleInput" class="form-label">Title</label>
+        <input type="text" class="form-control" id="titleInput" [(ngModel)]="titleInput">
+    </div>
+    <div class="mb-3">
+        <label for="firstExaminerNameInput" class="form-label">First Examiner Name</label>
+        <input type="text" class="form-control" id="firstExaminerNameInput" [(ngModel)]="firstExaminerInput">
+    </div>
+    <div class="mb-3">
+        <label for="secondExaminerNameInput" class="form-label">Second Examiner Name</label>
+        <input type="text" class="form-control" id="secondExaminerNameInput" [(ngModel)]="secondExaminerInput">
+    </div>
+    <div class="mb-3">
+        <label for="thirdExaminerNameInput" class="form-label">Third Examiner Name</label>
+        <input type="text" class="form-control" id="thirdExaminerNameInput" [(ngModel)]="thirdExaminerInput">
+    </div>
+    <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+</div>

@@ -1,0 +1,9 @@
+<div *ngIf="examination$ | async as examination ">
+    <h1>Dashboard for {{examination.title}}</h1>
+    Examiners:
+    <ol>
+        <li><a routerLink="/examination/session/{{examination.id}}/grading/{{examination.firstId}}">{{examination.firstExaminer}}</a></li>
+        <li><a routerLink="/examination/session/{{examination.id}}/grading/{{examination.secondId}}">{{examination.secondExaminer}}</a></li>
+        <li><a routerLink="/examination/session/{{examination.id}}/grading/{{examination.thirdId}}">{{examination.thirdExaminer}}</a></li>
+    </ol>
+</div>

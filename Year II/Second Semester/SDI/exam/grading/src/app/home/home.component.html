@@ -1,0 +1,18 @@
+<h1>Grading app</h1>
+<table>
+    <thead>
+        <th>#</th>
+        <th>Examination title</th>
+        <th>Dashboard link</th>
+        <th>Meanest examiner</th>
+    </thead>
+    <tbody *ngIf="examintaions$ | async as examinations">
+        <tr *ngFor="let examination of examinations;let indexOfelement=index;">
+            <td class="counter">{{indexOfelement + 1}}</td>
+            <td>{{examination.title}}</td>
+            <td><a routerLink="/examination/dashboard/{{examination.id}}">Link</a></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<button routerLink="/examination/create" class="btn btn-primary">Create examination</button>

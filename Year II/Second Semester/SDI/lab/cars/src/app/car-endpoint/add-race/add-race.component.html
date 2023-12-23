@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="search">
+        <h4>Please type the name of the race you want to add to the car with id {{carId}}</h4>
+        <input type="text" [(ngModel)]="nameInputValue"/>
+        <button type="button" class="btn btn-dark top-btns" (click)="onSearch()">Search</button>
+        <div class="container" *ngIf="result">
+            <select [(ngModel)]="selectedOption">
+                <option value="">Select an option</option>
+                <option *ngFor="let item of races" [value]="item.id">{{ item.name }}</option>
+            </select>
+            <button type="button" class="btn btn-primary" (click)="onAdd()">Add Race</button>
+        </div>
+      </div>
+</div>

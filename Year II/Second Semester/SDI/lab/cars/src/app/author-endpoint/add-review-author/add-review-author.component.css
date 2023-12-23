@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10% auto;
+    gap: 3rem;
+}
+
+.search {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}

@@ -1,0 +1,19 @@
+<div class="cards-container">
+  <!-- <h1>Search Author by id</h1>
+    <div class="search">
+      <button type="button" class="btn btn-dark top-btns" (click)="onSearch()">Search</button>
+      <input type="number" [(ngModel)]="idInputValue"/>
+      <div *ngIf="foundAuthor$ | async as foundAuthor">
+        <app-author-card [author]="foundAuthor" (deleteAuthor)="onDeleteAuthor($event)"/>
+      </div>
+    </div> -->
+    <div *ngIf="searchError$ | async as error" class="alert alert-danger">No author found!</div>
+    <h1>See All Authors</h1>
+    <div class="container">
+      <button type="button" class="btn btn-dark top-btns" (click)="onAdd()">Add new Author</button>
+      <div *ngIf="(authorPage$ | async) as page">
+        <app-author-card *ngFor="let author of page.content" [author]="author" (deleteAuthor)="onDeleteAuthor($event)"/>
+        <pagination [currentPage]="page.number" [limit]="page.size" [totalElements]="page.totalElements" [totalPages]="page.totalPages" (changePage)="changePage($event)"/>
+    </div>
+    </div>
+</div>    

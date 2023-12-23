@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="">
+        <i class="fa-solid fa-car"></i>
+        CarInfoAPI
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/testapi">Test API</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cars">CARS</a>
+        <li class="nav-item">
+        </li>
+          <a class="nav-link" routerLink="/reviews">REVIEWS</a>
+        <li class="nav-item">
+        </li>
+          <a class="nav-link" routerLink="/authors">AUTHORS</a>
+        <li class="nav-item">
+        </li>
+          <a class="nav-link" routerLink="/races">RACES</a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/authors-report">AUTHORS REPORT</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/reviews-report">REVIEWS REPORT</a>
+        </li> -->
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="https://carsinfoapi.azurewebsites.net/swagger/index.html">Swagger</a>
+        </li> -->
+        <li *ngIf="isLoggedIn()" class="nav-item">
+          <button type="button" class="btn btn-light" (click)="logout()">Logout</button>
+        </li>
+        <li *ngIf="isLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink=""(click)="myProfile()">My Profile</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<app-loader *ngIf="loadingService.loading$ | async"></app-loader>
+<router-outlet></router-outlet>

@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="search">
+        <h4>Please fill the review you want to add to the author with id {{authorId}}</h4>
+        <div class="container">
+            <form>
+                <div class="mb-3">
+                    <label for="modelInput" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="titleInput" name="titleInput" [(ngModel)]="titleInputValue" aria-describedby="Title">
+                </div>
+                <div class="mb-3">
+                    <label for="manufacturerInput" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="descriptionInput" name="descriptionInput" [(ngModel)]="descriptionInputValue" aria-describedby="Description">
+                </div>
+                <div class="mb-3">
+                    <label for="colorInput" class="form-label">Score</label>
+                    <input type="number" min="1900" max="2099" step="1" class="form-control" id="scoreInput" name="scoreInput" [(ngModel)]="scoreInputValue" aria-describedby="Score">
+                </div>
+                <div class="mb-3">
+                    <label for="fabYearInput" class="form-label">Date</label>
+                    <input type="text" class="form-control" id="dateInput" name="dateInput" [(ngModel)]="dateInputInputValue">
+                </div>
+                <button type="submit" class="btn btn-success" (click)="onSubmit()">Add</button>
+            </form>
+        </div>
+</div>

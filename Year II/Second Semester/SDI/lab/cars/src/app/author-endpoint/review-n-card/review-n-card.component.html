@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header">
+      <button type="button" class="btn btn-danger" (click)="toggleDelete()">Delete</button>
+    </div>
+    <div class="container confirm" *ngIf="showDeleteConfirm">
+      <h4>Are you sure?</h4>
+      <button type="button" class="btn btn-danger" (click)="onDelete()">Yes</button>
+      <button type="button" class="btn btn-success" (click)="toggleDelete()">No</button>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Review Id: {{review.id}}</strong></li>
+      <li class="list-group-item">Title: {{review.title}}</li>
+      <li class="list-group-item">Description: {{review.description}}</li>
+      <li class="list-group-item">Score: {{review.score}}</li>
+      <li class="list-group-item">Author Id: {{review.authorId}}</li>
+      <li class="list-group-item">Car ID: {{review.carId}}</li>
+    </ul>
+  </div>

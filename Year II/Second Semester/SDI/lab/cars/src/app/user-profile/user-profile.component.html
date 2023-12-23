@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>User Profile</h1>
+    <div class="card" *ngIf="user$ | async as user">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Username: {{ user.username }}</strong></li>
+          <li class="list-group-item">Level: {{user.level}}</li>
+          <li class="list-group-item">Marital Status: {{user.maritalStatus}}</li>
+          <li class="list-group-item">Gender: {{user.gender}}</li>
+          <li class="list-group-item">Bio: {{user.bio}}</li>
+          <li class="list-group-item">Country: {{user.country}}</li>
+        </ul>
+    </div>
+    <div class="container" *ngIf="!(user$ | async) as user">
+        <h3>Profile is empty please fill the info</h3>
+        <button type="button" class="btn btn-primary">Fill the profile information</button>
+    </div>
+    <div class="container">
+        <h2>Input the number of elements per page</h2>
+        <input type="number" min="1" max="20" step="1" class="form-control" id="elementsInput" name="elementsInput" [(ngModel)]="elementsPerPage" aria-describedby="elementsPerPage">
+        <button type="button" (click)="save()" class="btn btn-primary">Save</button>
+    </div>
+    <div *ngIf="user$">
+        <h1>Statistics</h1>
+        <div *ngIf="statsLoading" class="text-center">
+            <i class="fas fa-spinner fa-spin fa-5x"></i>
+        </div>
+        <div class="card" *ngIf="stats$ | async as stats">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Number of added Cars: {{ stats.addedCars }}</li>
+                <li class="list-group-item">Number of added Reviews: {{ stats.addedReviews }}</li>
+                <li class="list-group-item">Number of added Authors: {{ stats.addedAuthors }}</li>
+                <li class="list-group-item">Number of added Races: {{ stats.addedRaces }}</li>
+            </ul>
+        </div>
+        <div class="container" *ngIf="!(stats$ | async)">
+            <p>No stats to show</p>
+        </div>
+    </div>
+</div>

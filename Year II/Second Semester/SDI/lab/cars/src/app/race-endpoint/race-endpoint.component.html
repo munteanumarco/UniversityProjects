@@ -1,0 +1,19 @@
+<div class="cards-container">
+    <!-- <h1>Search Race by id</h1>
+    <div class="search">
+      <button type="button" class="btn btn-dark top-btns" (click)="onSearch()">Search</button>
+      <input type="number" [(ngModel)]="idInputValue"/>
+      <div *ngIf="foundRace$ | async as foundRace">
+        <app-race-card [race]="foundRace" (deleteRace)="onDeleteRace($event)"/>
+      </div>
+    </div> -->
+    <div *ngIf="searchError$ | async as error" class="alert alert-danger">No Race found!</div>
+    <h1>See All Races</h1>
+    <div class="container">
+      <button type="button" class="btn btn-dark top-btns" (click)="onAdd()">Add new Race</button>
+      <div *ngIf="(racePage$ | async) as page">
+        <app-race-card *ngFor="let race of page.content" [race]="race" (deleteRace)="onDeleteRace($event)"/>
+        <pagination [currentPage]="page.number" [limit]="page.size" [totalElements]="page.totalElements" [totalPages]="page.totalPages" (changePage)="changePage($event)"/>
+      </div>
+    </div>
+</div>    

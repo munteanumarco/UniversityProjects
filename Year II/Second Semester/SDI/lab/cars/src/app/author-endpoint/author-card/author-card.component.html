@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-header">
+      <button type="button" class="btn btn-danger" (click)="toggleDelete()">Delete</button>
+      <a [routerLink]="'/update-author/' + author.id"><button type="button" class="btn btn-success">Update</button></a>
+      <a [routerLink]="'/view-author/' + author.id"><button type="button" class="btn btn-primary">View</button></a>
+    </div>
+    <div class="container confirm" *ngIf="showDeleteConfirm">
+      <h4>Are you sure?</h4>
+      <button type="button" class="btn btn-danger" (click)="onDelete()">Yes</button>
+      <button type="button" class="btn btn-success" (click)="toggleDelete()">No</button>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Author Id: {{author.id}}</strong></li>
+      <li class="list-group-item"><strong>Created By UserID: <a routerLink="/profile/{{author.userId}}">{{author.userId}}</a></strong></li>
+      <li class="list-group-item">First Name: {{author.firstName}}</li>
+      <li class="list-group-item">Last Name: {{author.lastName}}</li>
+      <li class="list-group-item">Email: {{author.email}}</li>
+      <li class="list-group-item">Phone: {{author.phone}}</li>
+    </ul>
+  </div>

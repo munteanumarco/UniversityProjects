@@ -1,0 +1,22 @@
+<div class="container">
+    <form>
+        <h1>Add new Author</h1>
+        <div class="mb-3">
+            <label for="modelInput" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="fNameInput" name="fNameInput" [(ngModel)]="fNameInputValue" aria-describedby="firstName">
+        </div>
+        <div class="mb-3">
+            <label for="manufacturerInput" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lNameInput" name="lNameInput" [(ngModel)]="lNameInputValue" aria-describedby="lastName">
+        </div>
+        <div class="mb-3">
+            <label for="colorInput" class="form-label">Email</label>
+            <input type="text" class="form-control" id="emailInput" name="emailInput" [(ngModel)]="emailInputValue" aria-describedby="Email">
+        </div>
+        <div class="mb-3">
+            <label for="fabYearInput" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phoneInput" name="phoneInput" [(ngModel)]="phoneInputValue" aria-describedby="Phone">
+        </div>
+        <button type="submit" class="btn btn-success" (click)="onSubmit()">Add</button>
+    </form>
+</div>

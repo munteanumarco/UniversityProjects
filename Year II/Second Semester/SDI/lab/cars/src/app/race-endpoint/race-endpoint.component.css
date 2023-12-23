@@ -1,0 +1,33 @@
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.container {
+    margin: 5rem;
+}
+
+.cars-btn {
+    width: 100%;
+    max-width: 20rem;
+}
+
+.top-btns {
+    margin: 1rem;
+}
+
+.pagination-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.pagination-buttons button {
+    min-width: 100px;
+}
+

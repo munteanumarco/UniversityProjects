@@ -1,0 +1,15 @@
+<div class="container"  *ngIf="author$ | async as author">
+    <h1>Selected Author:</h1>
+    <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Car Id: {{author.id}}</strong></li>
+                <li class="list-group-item">Manufacturer: {{author.firstName}}</li>
+                <li class="list-group-item">Manufacturer: {{author.lastName}}</li>
+                <li class="list-group-item">Manufacturer: {{author.email}}</li>
+                <li class="list-group-item">Manufacturer: {{author.phone}}</li>
+            </ul>
+    </div> 
+    <h1>Related Reviews:</h1>
+    <app-review-n-card *ngFor="let review of author.reviews" [review]="review" (deleteReview)="onDeleteReviewFromAuthor($event)"/>
+    <button type="button" class="btn btn-primary" (click)="onAddReview()">Add new Review</button>
+</div>

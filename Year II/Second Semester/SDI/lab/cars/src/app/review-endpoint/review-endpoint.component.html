@@ -1,0 +1,18 @@
+<div class="cards-container">
+    <h1>Filter Reviews By Score</h1>
+    <div class="search">
+      <h4>Score:</h4>
+      <button type="button" class="btn btn-dark top-btns" (click)="onSearch()">Search</button>
+      <input type="number" [(ngModel)]="scoreInputValue"/>
+    </div>
+    <div class="container" *ngIf="(filteredReviewPage$ | async) as page">
+      <app-review-card *ngFor="let review of page.content" [review]="review" (deleteReview)="onDeleteReview($event)"/>
+    </div>
+    <h1>See All Reviews</h1>
+    <div class="container">
+      <div *ngIf="(reviewPage$ | async) as page">
+        <app-review-card *ngFor="let review of page.content" [review]="review" (deleteReview)="onDeleteReview($event)"/>
+        <pagination [currentPage]="page.number" [limit]="page.size" [totalElements]="page.totalElements" [totalPages]="page.totalPages" (changePage)="changePage($event)"/>
+    </div>
+    </div>
+</div>    

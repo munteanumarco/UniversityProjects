@@ -1,0 +1,7 @@
+<div class="cards-container">
+    <h1>See All Reviews Report</h1>
+    <div class="container" *ngIf="(reportPage$ | async) as page">
+        <app-review-report-card *ngFor="let car of page.content" [car]="car"/>
+        <pagination [currentPage]="page.number" [limit]="page.size" [totalElements]="page.totalElements" [totalPages]="page.totalPages" (changePage)="changePage($event)"/>
+    </div>
+</div>

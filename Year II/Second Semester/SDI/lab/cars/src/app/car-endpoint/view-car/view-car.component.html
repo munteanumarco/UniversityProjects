@@ -1,0 +1,15 @@
+<div class="container"  *ngIf="car$ | async as car">
+    <h1>Selected Car:</h1>
+    <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Car Id: {{car.id}}</strong></li>
+                <li class="list-group-item">Manufacturer: {{car.manufacturer}}</li>
+                <li class="list-group-item">Model: {{car.model}}</li>
+                <li class="list-group-item">Fabrication Year: {{car.fabricationYear}}</li>
+                <li class="list-group-item">Color: {{car.color}}</li>
+            </ul>
+    </div> 
+    <h1>Related Races:</h1>
+    <app-race-card-mn *ngFor="let race of car.races" [race]="race" (deleteRace)="onDeleteRaceFromCar($event)"/>
+    <button type="button" class="btn btn-primary" (click)="onAddRace()">Add new Race</button>
+</div>

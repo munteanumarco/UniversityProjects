@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-header">
+      <button type="button" class="btn btn-danger" (click)="toggleDelete()">Delete</button>
+      <a [routerLink]="'/update-car/' + car.id"><button type="button" class="btn btn-success">Update</button></a>
+      <a [routerLink]="'/view-car/' + car.id"><button type="button" class="btn btn-primary">View</button></a>
+    </div>
+    <div class="container confirm" *ngIf="showDeleteConfirm">
+      <h4>Are you sure?</h4>
+      <button type="button" class="btn btn-danger" (click)="onDelete()">Yes</button>
+      <button type="button" class="btn btn-success" (click)="toggleDelete()">No</button>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Car Id: {{car.id}}</strong></li>
+      <li class="list-group-item"><strong>Created By UserID: <a routerLink="/profile/{{car.userId}}">{{car.userId}}</a></strong></li>
+      <li class="list-group-item">Manufacturer: {{car.manufacturer}}</li>
+      <li class="list-group-item">Model: {{car.model}}</li>
+      <li class="list-group-item">Fabrication Year: {{car.fabricationYear}}</li>
+      <li class="list-group-item">Color: {{car.color}}</li>
+    </ul>
+  </div>
